@@ -16,7 +16,7 @@ e = np.linspace(0, 1, 5)
 assert np.all(e == np.array([0., 0.25, 0.5, 0.75, 1.0]))
 
 f = np.arange(5 * 5).reshape(5, 5)
-fc = f[np.ix_([0, 2, 4], [1, 3])]
+fc = f[::2, 1:4:2]
 assert np.all(fc == np.array([[1, 3], [11, 13], [21, 23]]))
 
 g = np.ones((5, 3))
@@ -38,7 +38,7 @@ kl = k ** l
 assert np.all(kl == np.array([1, 4, 27, 64, 625]))
 
 m = np.array([2, 2, 2, 3, 3, 3])
-mc = np.mean(m == 2)
+mc = np.sum(m == 2) / m.size
 assert mc == 0.5
 
 n = np.array([1, 2, 3, 4, 5, 6])
